@@ -1,0 +1,67 @@
+<div>
+  <div class="removePadding">
+      <div class="loginPageBG row removeMargin">
+          <div class="col-md-5 removePadding">
+              <div class="loginForm">
+                  <div class="rightPos">
+                      <div class="card">
+
+                          <div class="card-content table-responsive bgColor">
+                              <form #loginForm="ngForm" novalidate *ngIf="!isResetting"  >
+                                  <div>
+                                      <div class="input-group marPadding">
+                                          <span class="input-group-addon">
+                                                  <i class="fa fa-user fontSize24"></i>
+                                              </span>
+                                          <div class="col-sm-12">
+                                              <div class="form-group  form-black label-floating is-empty">
+                                                  <label class="control-label">{{'Email'}}</label>
+                                                  <input type="email" class="form-control marleftemail"   name="emailName" #emailName="ngModel" ngModel required>
+                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="input-group marPadding">
+                                          <span class="input-group-addon">
+                                                  <i class="fa fa-user fontSize24"></i>
+                                              </span>
+                                          <div class="col-sm-12">
+                                              <div class="form-group  form-black label-floating is-empty">
+                                                  <label class="control-label">{{'DropDown'}}</label>
+                                                  
+                                                  <select class="form-control dropDown"  required>
+                                                     
+                                                          <option [ngValue]="k.Id" *ngFor="let k of nameList" selected="Advanced">  
+                                                            {{k.Name}}  
+                                                           </option>  
+                                                          <!-- <option selected>Advanced</option>  
+                                                          <option >Pro</option> -->
+                                                      </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  <div class="input-group marPadding">
+                                      <span class="input-group-addon">
+                                                  <i class="fa fa-key fontSize24"></i>
+                                                  </span>
+                                      <div class="col-sm-12">
+                                          <div class="form-group  form-black label-floating is-empty">
+                                              <label class="control-label">{{'PASSWORD'}}</label>
+                                              <input type="password" class="form-control marleftPwd" name="password" minlength="8" #password="ngModel" ngModel required>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="fontColorFroly fontSize16 textCenter" *ngIf="loginErrorFlag">{{loginError}}</div>
+                                  <div class="fontColorFroly fontSize16 textCenter errorMsg" *ngIf="(password.dirty || password.touched) && (loginForm.invalid)">{{'Enter Min 8 Character'}}</div>
+                                  <button type="submit" class="btn btn-block"  [ngClass]="(loginForm.invalid)?'btn-default':'btn-info'"(click)="addItem()" [disabled]="loginForm.invalid || loginForm.pending">{{'LOGIN'}}</button>
+                                  <button type="submit" class="btn btn-block marBtn"(click)="reset()" >{{'Reset'}}</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
